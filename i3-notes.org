@@ -1,0 +1,45 @@
+* Quick intro
+=i3= is a great Window Manager. And I am still learning it. So I will improve this document as I learn more efficient ways.
+
+* Steps to setup i3 window manager
+I had installed Ubuntu intially then switched to i3. I had to carry out following steps,
+
+ - Edit =.xsessionrc= file and put in the following
+#+BEGIN_SRC 
+# To start my chat client
+pidgin &
+# Since I am left handed (flip the mouse buttons)
+xmodmap -e "pointer = 3 2 1"
+# Similarly, change the touchpad to translate "tap" to clicking primary mouse button
+synclient TapButton1=3
+# Network manager applet
+nm-applet &
+#+END_SRC
+ - My laptop is attached to external monitor. I need to switch between following settings,
+   - Only laptop monitor (when it is not connected to external monitor)
+   - Only external monitor (when I want to close laptop lid and only work on external monitor)
+   - Both monitors (not cloned)
+ - To achieve the above follow below steps,
+   - Install arandr command with =sudo apt-get install arandr=
+   - Launch =arandr= and configure above settings (primary monitor, resolution)
+   - Save the settings as sh file (e.g. internal_monitor.sh, external_monitor.sh, both_monitors.sh etc.)
+ - Now you can run the above created files to switch between various monitor layouts.
+ - Press Mod1+Shift+r to make the pidgin and network manager appear in the tray.
+
+* Quick commands
+To add
+
+* Common issues and solutions
+** Not able to switch to other window when connected to citrix
+ - For citrix fullscreen issue, press Ctrl-F2 followed by Mod1+<workspace number> to switch to other workspace
+ - Use Mod1+Shift+NUMBER to switch the Citrix to its own workspace
+** Unable to switch from remmina fullscreen
+ - Press Right Ctrl-F
+** Avoid laptop from suspending when lid closed
+ - Edit =/etc/systemd/logind.conf=
+   - Uncomment "HandleLidSwitch=suspend" param and change =suspend= to =ignore=
+   - Restart login service with
+     - =systemctl list-units | grep login=
+     - =systemctl restart UNITNAME=
+ 
+
