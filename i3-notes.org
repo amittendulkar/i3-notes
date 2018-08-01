@@ -1,5 +1,5 @@
 * Quick intro
-=i3= is a great Window Manager. And I am still learning it. So I will improve this document as I learn more efficient ways.
+=i3= is a great Window Manager. I am still learning it. The below notes reflect my knowledge around using the =i3= for doing common operations (even non-i3 related operations which typically have menus in other desktop managers). I will improve this document as I learn more efficient ways to do stuff.
 
 * Steps to setup i3 window manager
 I had installed Ubuntu intially then switched to i3. I had to carry out following steps,
@@ -61,5 +61,12 @@ Convention: =C=: Ctrl, =S=: Shift, =M=: Mod1, =NUM=: Number, =DIR=: Direction, =
    - Restart login service with
      - =systemctl list-units | grep login=
      - =systemctl restart UNITNAME=
- 
+** Suspending laptop
+You can run command =lock && systemctl suspend=
+** Changing monitor brightness
+You can do it through =xbacklight=
+ - =xbacklight -inc 10=
+ - =xbacklight -dec 10=
+
+
 
