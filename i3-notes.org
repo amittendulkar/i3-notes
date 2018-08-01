@@ -27,13 +27,33 @@ nm-applet &
  - Press Mod1+Shift+r to make the pidgin and network manager appear in the tray.
 
 * Quick commands
-To add
+Convention: =C=: Ctrl, =S=: Shift, =M=: Mod1, =NUM=: Number, =DIR=: Direction, =RET=: Carriage Return/Enter, =SPC=: Space
+ - Navigation
+   - =M-NUM=: Go to workspace
+   - =M-DIR=: Focus window in direction (can use =j/k/l/;= or arrow keys for direction)
+   - =M-a=: Focus parent container (to do operations on siblings in the tree)
+ - Split mode
+   - =M-v=: Set vertical split for current container
+   - =M-h=: Set horizontal split for current container
+   - =M-w=: Tabbed layout for current container (horizontal)
+   - =M-s=: Stack layout (vertical)
+ - Run commands
+   - =M-RET=: Open new terminal window
+   - =M-d COMMAND=: Run COMMAND (suggestions are listed in the bar and you can choose using LEFT/RIGHT keys)
+ - Moving windows
+   - =M-S-NUM=: Send currently focused window to workspace NUM
+   - =M-S-DIR=: Send window to given direction (may implicitly create new container dpending on resulting tree structure)
+   - =M-S-q=: Kill window
+ - Tiling/Floating
+   - =M-f=: Toggle fullscreen
+   - =M-SPC=: Switch to first tiled/floating container if current container is floating/tiled.
+   - =M-S-SPC=: Toggle current container between floating/tiled.
 
 * Common issues and solutions
 ** Not able to switch to other window when connected to citrix
  - For citrix fullscreen issue, press Ctrl-F2 followed by Mod1+<workspace number> to switch to other workspace
  - Use Mod1+Shift+NUMBER to switch the Citrix to its own workspace
-** Unable to switch from remmina fullscreen
+** Unable to switch from remmina fullscreen (RDP client)
  - Press Right Ctrl-F
 ** Avoid laptop from suspending when lid closed
  - Edit =/etc/systemd/logind.conf=
