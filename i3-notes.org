@@ -37,6 +37,7 @@ Convention: =C=: Ctrl, =S=: Shift, =M=: Mod1, =NUM=: Number, =DIR=: Direction, =
    - =M-h=: Set horizontal split for current container
    - =M-w=: Tabbed layout for current container (horizontal)
    - =M-s=: Stack layout (vertical)
+   - =M-e=: Default layout (tiled)
  - Run commands
    - =M-RET=: Open new terminal window
    - =M-d COMMAND=: Run COMMAND (suggestions are listed in the bar and you can choose using LEFT/RIGHT keys)
@@ -48,6 +49,27 @@ Convention: =C=: Ctrl, =S=: Shift, =M=: Mod1, =NUM=: Number, =DIR=: Direction, =
    - =M-f=: Toggle fullscreen
    - =M-SPC=: Switch to first tiled/floating container if current container is floating/tiled.
    - =M-S-SPC=: Toggle current container between floating/tiled.
+
+* Configuration
+** Setting new shortcuts
+You can insert the following block in ~/.config/i3/config file towards the end to quickly launch new applications
+
+You can press =M-o= to activate the new shortcuts (c, v, e) to launch respective applications and exit the mode with Esc.
+#+BEGIN_SRC
+set $mode_launch Launch: [c]hromium-browser, e[v]olution, [e]macs, Esc/Return: default mode
+mode "$mode_launch" {
+     bindsym c exec chromium-browser
+     bindsym v exec evolution
+     bindsym e exec emacs
+     # back to normal: Enter or Escape
+     bindsym Return mode "default"
+     bindsym Escape mode "default"
+}
+
+bindsym $mod+o mode "$mode_launch"
+
+#+END_SRC
+
 
 * Common issues and solutions
 ** Not able to switch to other window when connected to citrix
