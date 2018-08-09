@@ -14,6 +14,8 @@ xmodmap -e "pointer = 3 2 1"
 synclient TapButton1=3
 # Network manager applet
 nm-applet &
+# Volume control (install package volumeicon-alsa first)
+volumeicon &
 #+END_SRC
  - My laptop is attached to external monitor. I need to switch between following settings,
    - Only laptop monitor (when it is not connected to external monitor)
